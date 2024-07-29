@@ -6,7 +6,7 @@ import LogoutButton from "./LogoutBtn";
 function Navbar() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   return (
-    <div className="flex justify-between items-center ">
+    <div className="flex  justify-between items-center ">
       <div>
         <div className="h-24 w-24 flex items-center">
           <img src="logo.svg" alt="" />

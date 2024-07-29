@@ -35,6 +35,7 @@
 
 // export default Banner;
 
+import BlurIn from "@/components/magicui/blur-in";
 import React from "react";
 
 const Banner = ({ heading, img, text, buttonText, imgPosition }) => {
@@ -51,7 +52,9 @@ const Banner = ({ heading, img, text, buttonText, imgPosition }) => {
         >
           <div>
             <h1 className="text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-blue-600 text-center md:text-left">
-              {heading}
+              <BlurIn word={heading} />
+              {/* {heading}  */}
+             
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-600 mt-6 md:mt-6 text-center md:text-left">
               {text}

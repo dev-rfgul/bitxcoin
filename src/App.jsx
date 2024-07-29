@@ -3,11 +3,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Banner from "./Components/Banner";
 
 import Navbar from "./Components/Navbar";
-import Circle from "./Components/Circle";
 import Card from "./Components/Card";
 import Features from "./Components/Features";
 import Banner2 from "./Components/Banner2";
 import BlurIn from "./components/magicui/blur-in";
+import Ripple from "./components/magicui/ripple";
+import Mining from "./Components/Mining";
 
 const App = () => {
   const features = [
@@ -44,11 +45,9 @@ const App = () => {
     <>
       <div>
         <Navbar />
-        {isAuthenticated && <Circle />}
+        {isAuthenticated && <Mining/>}
         {!isAuthenticated && (
           <>
-
-          <BlurIn word="Welcome To BitXCoin" />
             <Banner
               heading="Welcome To BitXCoin"
               text="Buy, sell, trade, and invest in Bitcoin & crypto - all in one safe and simple app"
@@ -80,8 +79,7 @@ const App = () => {
               imgPosition="left"
             />
 
-
-<Banner2
+            <Banner2
               heading="From crypto to cash in a flash"
               mainImg="./img/crypto-cash.webp"
               features={features2}
@@ -93,7 +91,6 @@ const App = () => {
               buttonText="Download Now"
               imgPosition="left"
             />
-
 
             <Banner
               heading="Games"
@@ -107,7 +104,6 @@ const App = () => {
               text="Discover expert reviews on businesses and services that accept crypto. Easily browse, compare, and select the best options with just a few clicks"
               buttonText="Discover Now"
               img="./img/reviews.webp"
-
               imgPosition="left"
             />
 
