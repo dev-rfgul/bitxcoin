@@ -7,6 +7,7 @@ import Circle from "./Components/Circle";
 import Card from "./Components/Card";
 import Features from "./Components/Features";
 import Banner2 from "./Components/Banner2";
+import BlurIn from "./components/magicui/blur-in";
 
 const App = () => {
   const features = [
@@ -46,6 +47,8 @@ const App = () => {
         {isAuthenticated && <Circle />}
         {!isAuthenticated && (
           <>
+
+          <BlurIn word="Welcome To BitXCoin" />
             <Banner
               heading="Welcome To BitXCoin"
               text="Buy, sell, trade, and invest in Bitcoin & crypto - all in one safe and simple app"
