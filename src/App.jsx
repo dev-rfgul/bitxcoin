@@ -7,6 +7,7 @@ import Card from "./Components/Card";
 import Features from "./Components/Features";
 import Banner2 from "./Components/Banner2";
 import Mining from "./Components/Mining";
+import Partners from "./Components/Partners";
 
 const App = () => {
   const features = [
@@ -43,7 +44,7 @@ const App = () => {
     <>
       <div>
         <Navbar />
-        {isAuthenticated && <Mining/>}
+        {isAuthenticated && <Mining />}
         {!isAuthenticated && (
           <>
             <Banner
@@ -53,8 +54,8 @@ const App = () => {
               img="./img/hero-image.png"
               imgPosition="right"
             />
-            <Card />
-            <Features />
+            <Partners />
+            
 
             <Banner2
               heading="Take control of your money"
@@ -62,7 +63,8 @@ const App = () => {
               features={feature3}
               imgPosition="right"
             />
-
+            <Card />
+            
             <Banner
               heading="Your gateway to web3"
               text="Connect to thousands of dApps and make the most out of your crypto experience"
@@ -70,6 +72,12 @@ const App = () => {
               img="./img/banner-img-2.webp"
               imgPosition="left"
             />
+                 <Banner2
+              heading="From crypto to cash in a flash"
+              mainImg="./img/crypto-cash.webp"
+              features={features2}
+            />
+            <Features />
             <Banner2
               heading="Safe and secure"
               mainImg="./img/sheild-2.png"
@@ -77,11 +85,7 @@ const App = () => {
               imgPosition="left"
             />
 
-            <Banner2
-              heading="From crypto to cash in a flash"
-              mainImg="./img/crypto-cash.webp"
-              features={features2}
-            />
+       
             <Banner
               heading="Maps"
               text="Find merchants and ATMs in your area that accept BTC, BCH, ETH VERSE"

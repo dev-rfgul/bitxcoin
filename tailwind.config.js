@@ -18,6 +18,12 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    height: {
+      '128': '32rem', // Adds h-128
+      '144': '36rem', // Adds h-144
+      '160': '40rem', // Adds h-160
+      // Add more custom heights as needed
+    },
     extend: {
       animation: {
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",

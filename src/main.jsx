@@ -9,7 +9,13 @@ import { Auth0Provider } from "@auth0/auth0-react";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider
     domain="dev-rfgul.us.auth0.com"
-    clientId="RrDDoX3no1VO4eXru9kSqGcG9ellsclR"
+
+    // client id for bitxcoin.vercel.app
+    // clientId="RrDDoX3no1VO4eXru9kSqGcG9ellsclR"
+
+
+    // client id for localhost
+    clientId="q3z8KOkgkQ6H7hj3iKgSUvUerqYROhRj"
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}

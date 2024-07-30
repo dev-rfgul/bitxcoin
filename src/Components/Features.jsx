@@ -2,7 +2,7 @@ import React from "react";
 
 const Features = () => {
     return (
-        <div className="mt-40 mb-40 px-4 md:px-8 lg:px-16 xl:px-24">
+        <div className="mt-40 mb-40 px-4 md:px-8 lg:px-16 xl:px-24  bg-gradient-to-br from-blue-300 via-blue-500 to-blue-700 rounded-lg">
             {/* Horizontal line on top */}
             <div className="border-t border-gray-400 mb-10"></div>
 

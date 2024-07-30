@@ -1,18 +1,20 @@
 import React from "react";
 import Ripple from "../components/magicui/ripple";
-import ShinyButton from "../components/magicui/shiny-button";
-import MiningLogic from "../Components/MiningLogic";
 import CountdownTimer from "./CountDownTimer";
+import Button from "../Components/Button";
 
 const Mining = () => {
+  const timeStamp = () => {
+    console.log("You clicked me at " + new Date().toLocaleTimeString());
+  };
   return (
     <div>
       <CountdownTimer />
-      <Ripple />
-      {/* <MiningLogic /> */}
-      <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-30">
-        <ShinyButton className="bg-gray-400" text="Claim Your Token Now" />
+      <div className="flex justify-center items-center mt-3">
+        <Button btnText="Claim Your Token Now" />
       </div>
+
+      <Ripple />
     </div>
   );
 };

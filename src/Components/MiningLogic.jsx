@@ -4,7 +4,7 @@ const MiningLogic = () => {
   return (
     <div className=''>
 
-        timer will be here
+        
     </div>
   )
 }

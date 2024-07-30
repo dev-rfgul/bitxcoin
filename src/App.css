@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+
+/* styles.css or any CSS file */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-zoomInOut {
+  animation: zoomInOut 2s infinite;
+}
+
