@@ -15,7 +15,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 
     // client id for localhost
-    clientId="q3z8KOkgkQ6H7hj3iKgSUvUerqYROhRj"
+    // clientId="q3z8KOkgkQ6H7hj3iKgSUvUerqYROhRj"
+
+
+    // client id for production
+    clientId="Zd6eDVg5AEqNcgdTNhJ9lfU4oGGe4FlM"
+
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}
