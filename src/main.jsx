@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { Analytics } from "@vercel/analytics/react"
-// import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // import {AppProvider} from "./context/AppContext";
 
@@ -26,7 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <div className="px-6 md:px-12 lg:px-20 xl:px-32 ">
       <App />
       <Analytics/>
-      {/* <SpeedInsights/> */}
+      <SpeedInsights/>
     </div>
   </Auth0Provider>
 );
