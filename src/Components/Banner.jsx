@@ -37,6 +37,7 @@
 
 import BlurIn from "@/components/magicui/blur-in";
 import React from "react";
+import Btn from "./Btn";
 
 const Banner = ({ heading, img, text, buttonText, imgPosition }) => {
   return (
@@ -52,18 +53,26 @@ const Banner = ({ heading, img, text, buttonText, imgPosition }) => {
         >
           <div>
             <h1 className="text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-blue-600 text-center md:text-left">
-              <BlurIn word={heading} />
-              {/* {heading}  */}
+              <BlurIn word={heading}
+              duration={1} />
+              
              
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-600 mt-6 md:mt-6 text-center md:text-left">
-              {text}
+              <BlurIn word={text}
+              duration={2} />
+        
             </p>
             <div className="flex justify-center md:justify-start mt-6">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-md text-lg font-semibold">
-                {buttonText}
-              </button>
+
+              
+           
+
+
             </div>
+
+            <Btn 
+            btnText="Start Earning"/>
           </div>
         </div>
 

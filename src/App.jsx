@@ -6,8 +6,6 @@ import Navbar from "./Components/Navbar";
 import Card from "./Components/Card";
 import Features from "./Components/Features";
 import Banner2 from "./Components/Banner2";
-import BlurIn from "./components/magicui/blur-in";
-import Ripple from "./components/magicui/ripple";
 import Mining from "./Components/Mining";
 
 const App = () => {

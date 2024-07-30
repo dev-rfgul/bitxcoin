@@ -1,16 +1,15 @@
 import React from "react";
 import NumberTicker from "./number-ticker";
-import ShinyButton from "./shiny-button";
 
 const Ripple = React.memo(function Ripple({
-  mainCircleSize = 210,
+  mainCircleSize = 100,
   mainCircleOpacity = 0.9,
-  numCircles = 5,
+  numCircles = 6,
 }) {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen">
+    <div className="relative    flex flex-col items-center justify-center h-96">
       {/* Ripple Effect */}
-      <div className="absolute inset-0 flex items-center justify-center bg-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)] z-20">
+      <div className="absolute inset-0 flex items-center justify-center bg-white/5 [mask-image:linear-gradient(to_bottom,white,transparent)] ">
         {Array.from({ length: numCircles }, (_, i) => {
           const size = mainCircleSize + i * 70;
           const opacity = mainCircleOpacity - i * 0.03;
@@ -39,7 +38,7 @@ const Ripple = React.memo(function Ripple({
         })}
 
         <div className="relative text-6xl font-bold text-cyan-200 z-10">
-          <NumberTicker value={98} direction="up" />
+          <NumberTicker value={908} direction="up" />
         </div>
       </div>
 

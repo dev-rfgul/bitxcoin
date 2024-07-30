@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import Btn from "./Btn";
 import LoginButton from "./LoginBtn";
 import LogoutButton from "./LogoutBtn";
 
@@ -15,19 +16,24 @@ function Navbar() {
       </div>
       <div className="flex space-x-4">
         <div>
-          {isLoading && <div className="text-black">Loading...</div>}
+          {isLoading && (
+            <div className="flex items-center justify-center h-screen">
+              <div className="w-44 h-44 border-8 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
           {isAuthenticated && (
             <>
               <div>
-                <LogoutButton />
+                {/* <LogoutButton /> */}
+                <Btn btnText="Logout"/>
               </div>
             </>
           )}
           {!isAuthenticated && (
-            <>
-              <div></div>
-              <LoginButton />
-            </>
+            <div>
+              {/* <LoginButton /> */}
+              <Btn btnText="Start Earning"/>
+            </div>
           )}
         </div>
       </div>
