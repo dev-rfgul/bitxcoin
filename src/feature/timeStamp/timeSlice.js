@@ -4,7 +4,10 @@ const initialState = {
     timeStamps: [
         {
             id: 1,
-            time: "00:00:00:000",
+            hour: "00 :",
+            min:"00 :",
+            sec:"00 :",
+            milisec:"00",
         },
     ],
 };
@@ -16,15 +19,17 @@ export const timeStampSlice = createSlice({
         addTimeStamp: (state, action) => {
             const timeStamp = {
                 id: nanoid(),
-                time: action.payload,
+                hour: action.payload.hour,
+                min: action.payload.min,
+                sec: action.payload.sec,
+                milisec: action.payload.milisec,
             };
-            state.timeStamps.push(timeStamp);
+            state.timeStamps = [timeStamp];
+            console.log(timeStamp)
         },
-  
     },
-
 });
 
-export const {addTimeStamp} = timeStampSlice.actions;
+export const { addTimeStamp } = timeStampSlice.actions;
 
-export default timeStampSlice.reducer;  
+export default timeStampSlice.reducer;

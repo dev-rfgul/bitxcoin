@@ -46,8 +46,8 @@ const TrustedPartners = () => {
   ];
   return (
     <div className="px-4 py-8  bg-gradient-to-br from-blue-300 via-blue-500 to-blue-700 rounded-lg">
-      <h2 className=" text-blue-600 sm:text-3xl lg:text-4xl font-bold text-center mb-6">
-        Trusted Partners
+      <h2 className=" text-blue-600 sm:text-3xl   lg:text-6xl font-bold text-center mb-6">
+        Payment Options
       </h2>
       <div className="flex flex-wrap justify-center gap-6">
         {partners.map((partner, index) => (

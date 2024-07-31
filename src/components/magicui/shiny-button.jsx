@@ -31,11 +31,34 @@ const animationProps = {
 const ShinyButton = ({ text = "shiny-button", className }) => {
   const dispatch = useDispatch();
 
+  // const getTimeStamp = (e) => {
+  //   e.preventDefault();
+  //   let timeStamp = new Date().toLocaleTimeString();
+  //   dispatch(addTimeStamp(timeStamp));
+  //   console.log(timeStamp);
+    
+  // };
+
   const getTimeStamp = (e) => {
     e.preventDefault();
 
-    dispatch(addTimeStamp(new Date().toLocaleTimeString()));
-  };
+    const now = new Date();
+    const hour = `${now.getHours().toString().padStart(2, '0')} :`;
+    const min = `${now.getMinutes().toString().padStart(2, '0')} :`;
+    const sec = `${now.getSeconds().toString().padStart(2, '0')} :`;
+    const milisec = now.getMilliseconds().toString().padStart(3, '0');
+
+    const timeStamp = {
+        hour,
+        min,
+        sec,
+        milisec
+    };
+
+    dispatch(addTimeStamp(timeStamp));
+    console.log(timeStamp);
+};
+
   return (
     <motion.button
       onClick={getTimeStamp}
