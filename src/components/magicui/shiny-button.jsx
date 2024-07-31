@@ -45,14 +45,12 @@ const ShinyButton = ({ text = "shiny-button", className }) => {
     const now = new Date();
     const hour = `${now.getHours().toString().padStart(2, '0')} :`;
     const min = `${now.getMinutes().toString().padStart(2, '0')} :`;
-    const sec = `${now.getSeconds().toString().padStart(2, '0')} :`;
-    const milisec = now.getMilliseconds().toString().padStart(3, '0');
+    const sec = `${now.getSeconds().toString().padStart(2, '0')} `;
 
     const timeStamp = {
         hour,
         min,
         sec,
-        milisec
     };
 
     dispatch(addTimeStamp(timeStamp));
