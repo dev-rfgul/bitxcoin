@@ -1,7 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-
 import { cn } from "@/lib/utils";
+import React, { useState } from "react";
+
+//redux-toolkit
+import { useDispatch } from "react-redux";
+import { addTimeStamp } from "../../feature/timeStamp/timeSlice";
 
 const animationProps = {
   initial: { "--x": "100%", scale: 0.8 },
@@ -25,12 +29,16 @@ const animationProps = {
   },
 };
 const ShinyButton = ({ text = "shiny-button", className }) => {
-  const timeStamp = () => {
-    console.log("You clicked me at " + new Date().toLocaleTimeString());
+  const dispatch = useDispatch();
+
+  const getTimeStamp = (e) => {
+    e.preventDefault();
+
+    dispatch(addTimeStamp(new Date().toLocaleTimeString()));
   };
   return (
     <motion.button
-      onClick={timeStamp}
+      onClick={getTimeStamp}
       {...animationProps}
       className={cn(
         "relative rounded-lg px-6 py-2 font-medium backdrop-blur-xl transition-[box-shadow] duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]",

@@ -39,7 +39,7 @@ const Ripple = React.memo(function Ripple({
           })}
 
           <div className="relative text-6xl font-bold text-cyan-200 z-10">
-            <NumberTicker value={908} direction="up" />
+            <NumberTicker value={10} direction="up" />
           </div>
         </div>
       </div>

@@ -13,7 +13,6 @@ const Mining = () => {
       <div className="flex justify-center items-center mt-3">
         <Button btnText="Claim Your Token Now" />
       </div>
-
       <Ripple />
     </div>
   );

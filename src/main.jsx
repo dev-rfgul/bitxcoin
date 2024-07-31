@@ -4,10 +4,15 @@ import App from "./App.jsx";
 import "./index.css";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { Analytics } from "@vercel/analytics/react"
+import { Provider } from "react-redux";
+// import store from "./app/store"
 
+import {store} from "./app/store"
 // import {AppProvider} from "./context/AppContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+
+  <Provider store={store}>
   <Auth0Provider
     domain="dev-rfgul.us.auth0.com"
     // client id for bitxcoin.vercel.app
@@ -27,4 +32,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Analytics/>
     </div>
   </Auth0Provider>
+  </Provider>
 );
