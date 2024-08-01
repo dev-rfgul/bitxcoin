@@ -5,7 +5,10 @@ import React, { useState } from "react";
 
 //redux-toolkit
 import { useDispatch } from "react-redux";
-import { addTimeStamp } from "../../feature/timeStamp/timeSlice";
+import {
+  addTimeStamp,
+  updateCountdown,
+} from "../../feature/timeStamp/timeSlice";
 
 const animationProps = {
   initial: { "--x": "100%", scale: 0.8 },
@@ -31,35 +34,40 @@ const animationProps = {
 const ShinyButton = ({ text = "shiny-button", className }) => {
   const dispatch = useDispatch();
 
-  // const getTimeStamp = (e) => {
-  //   e.preventDefault();
-  //   let timeStamp = new Date().toLocaleTimeString();
-  //   dispatch(addTimeStamp(timeStamp));
-  //   console.log(timeStamp);
-    
-  // };
-
   const getTimeStamp = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const now = new Date();
-    const hour = `${now.getHours().toString().padStart(2, '0')} :`;
-    const min = `${now.getMinutes().toString().padStart(2, '0')} :`;
-    const sec = `${now.getSeconds().toString().padStart(2, '0')} `;
+    const hour = `${now.getHours().toString().padStart(2, "0")} :`;
+    const min = `${now.getMinutes().toString().padStart(2, "0")} :`;
+    const sec = `${now.getSeconds().toString().padStart(2, "0")} `;
 
     const timeStamp = {
-        hour,
-        min,
-        sec,
+      hour,
+      min,
+      sec,
     };
 
     dispatch(addTimeStamp(timeStamp));
     console.log(timeStamp);
-};
+  };
+
+  const updatedCountdown = (e) => {
+    // e.preventDefault();
+    const countdown = {
+      min: 59,
+      sec: 60,
+    };
+    dispatch(updateCountdown(countdown));
+    console.log(countdown);
+  };
 
   return (
     <motion.button
-      onClick={getTimeStamp}
+      onClick={() => {
+        updatedCountdown();
+        getTimeStamp();
+      }}
       {...animationProps}
       className={cn(
         "relative rounded-lg px-6 py-2 font-medium backdrop-blur-xl transition-[box-shadow] duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/10%)_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]",
