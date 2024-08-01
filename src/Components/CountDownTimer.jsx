@@ -1,43 +1,82 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCountdown } from "../feature/timeStamp/timeSlice"; // Adjust the import path if needed
+import { updateCountdown } from "../feature/timeStamp/timeSlice";
+
+
+{/*Adjust the import path if needed*/ }
 
 const CountdownTimer = () => {
     const dispatch = useDispatch();
     const timeStamps = useSelector((state) => state.timeStamps);
     const countdown = useSelector((state) => state.countdown);
 
-    const [hours, setHours] = useState(countdown.hour);
     const [minutes, setMinutes] = useState(countdown.min);
     const [seconds, setSeconds] = useState(countdown.sec);
+    const [message, setMessage] = useState(countdown.msg);
+    // let message = countdown.msg;
+    // console.log("Message from line no 17: ", message);
 
     useEffect(() => {
-        // Update local state when Redux state changes
-        setHours(countdown.hour);
+        {/*Update local state when Redux state changes*/ }
+
         setMinutes(countdown.min);
         setSeconds(countdown.sec);
     }, [countdown]);
 
+    // useEffect(() => {
+    //     const timerInterval = setInterval(() => {
+    //         setMinutes(prevMinutes => {
+    //             if (prevMinutes === 0 && seconds === 0) {
+    //                 console.log("time is up");
+    //                 console.log("Message: ", message);
+    //                 clearInterval(timerInterval);
+    //                 setMessage("Release Token");
+    //                 return prevMinutes;
+    //             } else if (seconds === 0) {
+    //                 setSeconds(59);
+    //                 return prevMinutes - 1;
+    //             } else {
+    //                 setSeconds(prevSeconds => prevSeconds - 1);
+    //                 return prevMinutes;
+    //             }
+    //         });
+
+    //         dispatch(updateCountdown({ min: minutes, sec: seconds, msg: message }));
+    //         console.log("Countdown Timer: ", minutes, seconds);
+    //     }, 1000);
+
+    //     return () => clearInterval(timerInterval);
+    // }, [seconds, dispatch, message]);
+
+
+
     useEffect(() => {
         const timerInterval = setInterval(() => {
-            if (hours === 0 && minutes === 0 && seconds === 0) {
-                clearInterval(timerInterval);
-            } else if (minutes === 0 && seconds === 0) {
-                setHours(hours - 1);
-                setMinutes(59);
-                setSeconds(59);
-            } else if (seconds === 0) {
-                setMinutes(minutes - 1);
-                setSeconds(59);
-            } else {
-                setSeconds(seconds - 1);
-            }
+            setSeconds((prevSeconds) => {
+                if (prevSeconds === 0) {
+                    if (minutes === 0) {
+                        console.log("time is up");
+                        setMessage("Release Token");
+                        // console.log("hello world " + message);
+                        // console.log("Message from line no 60: ", message);
+                        clearInterval(timerInterval);
+                        return 0;
+                    } else {
+                        setMinutes((prevMinutes) => prevMinutes - 1);
+                        return 59;
+                    }
+                } else {
+                    return prevSeconds - 1;
+                }
+            });
 
-            dispatch(updateCountdown({ min: minutes, sec: seconds }));
+            dispatch(updateCountdown({ min: minutes, sec: seconds, msg: message }));
+            //   console.log("Countdown Timer: ", minutes, seconds);
         }, 500);
 
         return () => clearInterval(timerInterval);
-    }, [hours, minutes, seconds, dispatch]);
+    }, [minutes, seconds, dispatch, message]);
+
 
     return (
         <div className="flex flex-col items-center justify-center p-4 sm:p-6 lg:p-10">
@@ -65,7 +104,7 @@ const CountdownTimer = () => {
                                     Next Token Available in:
                                 </span>
                                 <span className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
-                                    {`${countdown.min}:${countdown.sec} Mins`} 
+                                    {`${countdown.min}:${countdown.sec} Mins`}
                                 </span>
                             </div>
                         </li>
@@ -77,3 +116,5 @@ const CountdownTimer = () => {
 };
 
 export default CountdownTimer;
+
+

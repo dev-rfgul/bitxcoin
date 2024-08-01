@@ -49,17 +49,17 @@ const ShinyButton = ({ text = "shiny-button", className }) => {
     };
 
     dispatch(addTimeStamp(timeStamp));
-    console.log(timeStamp);
+    // console.log(timeStamp);
   };
 
   const updatedCountdown = (e) => {
     // e.preventDefault();
     const countdown = {
-      min: 59,
-      sec: 60,
+      min: 0 ,
+      sec: 10,
     };
     dispatch(updateCountdown(countdown));
-    console.log(countdown);
+    // console.log(countdown);
   };
 
   return (

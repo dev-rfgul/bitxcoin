@@ -3,8 +3,13 @@ import Ripple from "../components/magicui/ripple";
 import CountdownTimer from "./CountDownTimer";
 import Button from "../Components/Button";
 import Button2 from "./Button2";
+import { useSelector } from "react-redux";
+
 
 const Mining = () => {
+  const msgFromCountdown = useSelector((state) => state.countdown.msg);
+  // console.log("msgFromCountdown", msgFromCountdown)
+
   return (
     <div>
       <CountdownTimer />
