@@ -1,13 +1,18 @@
-
-
 import React from "react";
 import NumberTicker from "./number-ticker";
+
+import { useSelector } from "react-redux";
+import { totalToken } from "../../feature/timeStamp/timeSlice";
 
 const Ripple = React.memo(function Ripple({
   mainCircleSize = 210,
   mainCircleOpacity = 0.9,
   numCircles = 6,
 }) {
+
+
+  const totalTokens = useSelector((state) => state.totalToken);
+  console.log("totalToken", totalTokens)
   return (
     <div className="h-80 md:h-96 lg:h-160">
       <div className="relative flex flex-col items-center justify-center h-160">
@@ -31,7 +36,7 @@ const Ripple = React.memo(function Ripple({
                   animationDelay,
                   borderStyle,
                   borderWidth: "1px",
-                  borderColor: `hsl(207, 90%, 54%)`, // Tailwind's blue-500 equivalent
+                  borderColor: `hsl(207, 90%, 54%)`,
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) scale(1)",
@@ -41,7 +46,9 @@ const Ripple = React.memo(function Ripple({
           })}
 
           <div className="relative text-6xl font-bold text-blue-500 z-10">
-            <NumberTicker value={10} direction="up" />
+            {console.log("totalTokens from ripple.jsx ", totalTokens)}
+            {console.log("totalTokens from ripple.jsx ", typeof(totalTokens) )}
+            <NumberTicker  direction="up" />
           </div>
         </div>
       </div>
@@ -52,3 +59,4 @@ const Ripple = React.memo(function Ripple({
 Ripple.displayName = "Ripple";
 
 export default Ripple;
+

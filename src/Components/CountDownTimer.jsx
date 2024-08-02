@@ -50,16 +50,42 @@ const CountdownTimer = () => {
 
 
 
+    // useEffect(() => {
+    //     const timerInterval = setInterval(() => {
+    //         setSeconds((prevSeconds) => {
+    //             if (prevSeconds === 0) {
+    //                 if (minutes === 0) {
+    //                     console.log("time is up");
+    //                     setMessage("Release Token");
+    //                     // console.log("hello world " + message);
+    //                     console.log("Message from line no 60: ", message);
+    //                     clearInterval(timerInterval);
+    //                     return 0;
+    //                 } else {
+    //                     setMinutes((prevMinutes) => prevMinutes - 1);
+    //                     return 59;
+    //                 }
+    //             } else {
+    //                 return prevSeconds - 1;
+    //             }
+    //         });
+
+    //         dispatch(updateCountdown({ min: minutes, sec: seconds, msg: message }));
+    //         //   console.log("Countdown Timer: ", minutes, seconds);
+    //     }, 500);
+
+    //     return () => clearInterval(timerInterval);
+    // }, [minutes, seconds, dispatch, message]);
+
     useEffect(() => {
         const timerInterval = setInterval(() => {
             setSeconds((prevSeconds) => {
                 if (prevSeconds === 0) {
                     if (minutes === 0) {
-                        console.log("time is up");
-                        setMessage("Release Token");
-                        // console.log("hello world " + message);
-                        // console.log("Message from line no 60: ", message);
                         clearInterval(timerInterval);
+                        dispatch(updateCountdown({ min: 0, sec: 0, msg: "Release Token" }));
+                        setMessage("Release Token");
+                        console.log("Message from line no 60: ", "Release Token");
                         return 0;
                     } else {
                         setMinutes((prevMinutes) => prevMinutes - 1);
@@ -69,13 +95,15 @@ const CountdownTimer = () => {
                     return prevSeconds - 1;
                 }
             });
-
-            dispatch(updateCountdown({ min: minutes, sec: seconds, msg: message }));
-            //   console.log("Countdown Timer: ", minutes, seconds);
-        }, 500);
+        }, 1000); // Use 1000ms (1 second) interval for countdown
 
         return () => clearInterval(timerInterval);
-    }, [minutes, seconds, dispatch, message]);
+    }, [minutes, seconds, dispatch]);
+
+    useEffect(() => {
+        // Update the countdown state whenever minutes, seconds or message changes
+        dispatch(updateCountdown({ min: minutes, sec: seconds, msg: message }));
+    }, [minutes, seconds,  dispatch]);
 
 
     return (

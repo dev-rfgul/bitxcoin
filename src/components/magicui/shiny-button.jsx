@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 
 //redux-toolkit
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addTimeStamp,
   updateCountdown,
@@ -55,12 +55,18 @@ const ShinyButton = ({ text = "shiny-button", className }) => {
   const updatedCountdown = (e) => {
     // e.preventDefault();
     const countdown = {
-      min: 0 ,
+      min: 0,
       sec: 10,
     };
     dispatch(updateCountdown(countdown));
     // console.log(countdown);
   };
+
+  const msg = useSelector((state) => state.countdown.msg);
+
+  console.log("console from Button:", msg);
+
+
 
   return (
     <motion.button
@@ -92,7 +98,6 @@ const ShinyButton = ({ text = "shiny-button", className }) => {
       ></span>
     </motion.button>
   );
-
 };
 
 export default ShinyButton;

@@ -12,11 +12,11 @@ const Mining = () => {
 
   return (
     <div>
-      <CountdownTimer />
+      {/* <CountdownTimer /> */}
       <div className="flex justify-center items-center mt-3">
-        <Button btnText="Claim Your Token Now" />
+        {/* <Button btnText="Claim Your Token Now" /> */}
 
-        {/* <Button2 text="Claim Your Token Now"/> */}
+        <Button2  text="Claim Your Token Now"/>
       </div>
       <Ripple />
     </div>
