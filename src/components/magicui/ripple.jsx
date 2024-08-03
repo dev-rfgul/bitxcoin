@@ -3,6 +3,7 @@ import NumberTicker from "./number-ticker";
 
 import { useSelector } from "react-redux";
 import { totalToken } from "../../feature/timeStamp/timeSlice";
+import { CoolMode } from "./cool-mode";
 
 const Ripple = React.memo(function Ripple({
   mainCircleSize = 210,
@@ -14,6 +15,8 @@ const Ripple = React.memo(function Ripple({
   const totalTokens = useSelector((state) => state.totalToken);
   console.log("totalToken", totalTokens)
   return (
+
+    <CoolMode>
     <div className="h-80 md:h-96 lg:h-160">
       <div className="relative flex flex-col items-center justify-center h-160">
         {/* Ripple Effect */}
@@ -45,7 +48,7 @@ const Ripple = React.memo(function Ripple({
             );
           })}
 
-          <div className="relative text-6xl font-bold text-blue-500 z-10">
+          <div className="relative text-6xl font-bold text-blue-900 z-10">
             {console.log("totalTokens from ripple.jsx ", totalTokens)}
             {console.log("totalTokens from ripple.jsx ", typeof(totalTokens) )}
             <NumberTicker  direction="up" />
@@ -53,10 +56,10 @@ const Ripple = React.memo(function Ripple({
         </div>
       </div>
     </div>
+  </CoolMode>
   );
 });
 
 Ripple.displayName = "Ripple";
 
 export default Ripple;
-

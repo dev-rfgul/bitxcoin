@@ -8,6 +8,7 @@ import Features from "./Components/Features";
 import Banner2 from "./Components/Banner2";
 import Mining from "./Components/Mining";
 import Partners from "./Components/Partners";
+import VisitCounter from "./Components/VisitCounter";
 
 const App = () => {
   const features = [
@@ -47,6 +48,7 @@ const App = () => {
         {isAuthenticated && <Mining />}
         {!isAuthenticated && (
           <>
+            <VisitCounter />
             <Banner
               heading="Welcome To BitXCoin"
               text="Buy, sell, trade, and invest in Bitcoin & crypto - all in one safe and simple app"
@@ -55,7 +57,7 @@ const App = () => {
               imgPosition="right"
             />
             <Partners />
-            
+
 
             <Banner2
               heading="Take control of your money"
@@ -64,7 +66,7 @@ const App = () => {
               imgPosition="right"
             />
             <Card />
-            
+
             <Banner
               heading="Your gateway to web3"
               text="Connect to thousands of dApps and make the most out of your crypto experience"
@@ -72,7 +74,7 @@ const App = () => {
               img="./img/banner-img-2.webp"
               imgPosition="left"
             />
-                 <Banner2
+            <Banner2
               heading="From crypto to cash in a flash"
               mainImg="./img/crypto-cash.webp"
               features={features2}
@@ -85,7 +87,7 @@ const App = () => {
               imgPosition="left"
             />
 
-       
+
             <Banner
               heading="Maps"
               text="Find merchants and ATMs in your area that accept BTC, BCH, ETH VERSE"
