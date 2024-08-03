@@ -6,6 +6,9 @@ import Button2 from "./Button2";
 import { useSelector } from "react-redux";
 import VisitCounter from "./VisitCounter";
 import { CoolMode } from "@/components/magicui/cool-mode";
+import Blog from "../../src/ads/Blog";
+import Sidebar from "../../src/ads/Sidebar"
+import Banner from "../../src/ads/Banner"
 
 
 const Mining = () => {
@@ -16,6 +19,10 @@ const Mining = () => {
     <div>
       {/* <CountdownTimer /> */}
       <VisitCounter/>
+      <div className="">
+
+      <Blog/>
+      </div>
       <div className="flex justify-center items-center mt-3">
         {/* <Button btnText="Claim Your Token Now" /> */}
 

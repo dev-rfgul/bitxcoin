@@ -1,7 +1,5 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import Banner from "./Components/Banner";
-
 import Navbar from "./Components/Navbar";
 import Card from "./Components/Card";
 import Features from "./Components/Features";
@@ -9,6 +7,8 @@ import Banner2 from "./Components/Banner2";
 import Mining from "./Components/Mining";
 import Partners from "./Components/Partners";
 import VisitCounter from "./Components/VisitCounter";
+import BannerAd from "../src/ads/Banner"
+import Banner from "./Components/Banner";
 
 const App = () => {
   const features = [
@@ -49,6 +49,8 @@ const App = () => {
         {!isAuthenticated && (
           <>
             <VisitCounter />
+
+            <BannerAd/>
             <Banner
               heading="Welcome To BitXCoin"
               text="Buy, sell, trade, and invest in Bitcoin & crypto - all in one safe and simple app"
