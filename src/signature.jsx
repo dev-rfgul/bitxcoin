@@ -11,7 +11,7 @@ const Signature = () => {
             </p>
             <div className="mt-4">
                 <a
-                    href="mailto:developer@example.com"
+                    href="https://www.rfgul.live/"
                     className="px-6 py-3 bg-blue-500 text-white font-medium text-lg rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out"
                 >
                     Contact Developer
